@@ -1,0 +1,13 @@
+{
+  "main": "index.js",
+  "scripts": {
+    "prestart": "echo 'Preparing to start...'",
+    "start": "node index.js",
+    "poststart": "echo 'Application started.'",
+    "test": "jest"
+  },
+  "dependencies": {
+    "inquirer": "^8.2.4",
+    "package": "^1.0.1"
+  }
+}
