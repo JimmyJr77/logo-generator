@@ -50,7 +50,7 @@ function generateLogo(answers) {
             <title>Dynamic Logo</title>
             </head>
             <body>
-                <div id="${shape}"</div>
+                <div id="${shape}"><span id="text">${text}</div>
             </body>
         </html>
     `;
@@ -110,6 +110,11 @@ function generateLogo(answers) {
         font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
         font-weight: bold;
         font-size: 100px;
+        position: absolute;
+        display:flex;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         color:  ${textColor};
     }
     `;
