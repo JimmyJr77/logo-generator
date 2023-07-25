@@ -63,8 +63,67 @@ function generateLogo(answers) {
         console.log('Logo HTML file generated successfully!');
       }
     });
-  }
-  
+
+    const cssContent = `
+    /* Triangle */
+    #triangle {
+        position: absolute;
+        display: flex;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 0;
+        height: 0;
+        border-left: 125px solid transparent;
+        border-right: 125px solid transparent;
+        border-bottom: 250px solid #ff0000; 
+        background-color: ${shapeColor};
+    }
+      
+    /* Square */
+    #square {
+        position: absolute;
+        display: flex;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 250px;
+        height: 250px;
+        background-color: ${shapeColor};
+    }
+      
+    /* Circle */
+    #circle {
+        position: absolute;
+        display:flex;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        background-color: ${shapeColor};
+    }
+    
+    /* Text */
+    #text {
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        font-weight: bold;
+        font-size: 100px;
+        color:  ${textColor};
+    }
+    `;
+   
+    // Write the generated CSS content to a file
+    fs.writeFile('Assets/style.css', cssContent, (err) => {
+        if (err) {
+          console.error('Error writing style.css:', err);
+        } else {
+          console.log('style.css file generated successfully!');
+        }
+      });
+    }
+
   inquirer.prompt(questions).then((answers) => {
     generateLogo(answers);
   });
