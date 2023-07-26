@@ -18,7 +18,7 @@
         transform: translate(-50%, -50%);
         width: 250px;
         height: 250px;
-        background-color:purple;
+        background-color:blue;
         clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
     }
       
@@ -31,7 +31,7 @@
         transform: translate(-50%, -50%);
         width: 250px;
         height: 250px;
-        background-color: purple;
+        background-color: blue;
     }
       
     /* Circle */
@@ -44,21 +44,21 @@
         width: 250px;
         height: 250px;
         border-radius: 50%;
-        background-color: purple;
+        background-color: blue;
     }
     
     /* Text */
     #text {
-        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-family: 'Times New Roman', Times, serif;
         font-weight: bold;
-        font-size: 50px;
+        font-size: 150px;
         position: absolute;
         display:flex;
         
         top: 70%;
-        left: 50%;
+        left: 30%;
         
         transform: translate(-50%, -50%);
-        color:  yellow;
+        color:  white;
     }
     

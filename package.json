@@ -8,6 +8,8 @@
   },
   "dependencies": {
     "inquirer": "^8.2.4",
-    "package": "^1.0.1"
+    "package": "^1.0.1",
+    "puppeteer": "^20.9.0",
+    "svg-crowbar": "^0.7.0"
   }
 }

@@ -99,6 +99,8 @@ function generateLogo(answers) {
             <body>
                 <div id="${shape}"></div>
                 <div id="text">${text}</div>
+                <!-- Add the svg-crowbar.js script -->
+                <script src="node_modules/svg-crowbar/svg-crowbar.js"></script>
             </body>
         </html>
     `;
@@ -256,3 +258,35 @@ function generateLogo(answers) {
     generateLogo(answers);
   });
 
+//  // require puppeteer
+// const puppeteer = require('puppeteer'); // Add this line for puppeteer
+
+//   // Add this above the svg crowbar script
+// <svg id="logo-svg" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+// <!-- Your SVG content goes here -->
+// </svg>
+
+// // Function to capture the SVG and save it as logo.svg
+// async function captureSvg() {
+//     const browser = await puppeteer.launch();
+//     const page = await browser.newPage();
+//     await page.goto('file://' + __dirname + '/logo.html');
+//     await page.waitForTimeout(1000); // Wait for some time to ensure the SVG is fully rendered
+  
+//     // Extract the SVG content from the DOM
+//     const svgContent = await page.evaluate(() => {
+//       const svgElement = document.getElementById('logo-svg'); // Make sure to give your logo SVG element an ID 'logo-svg'
+//       return svgElement ? svgElement.outerHTML : null;
+//     });
+  
+//     // Save the SVG content to the logo.svg file
+//     fs.writeFile('logo.svg', svgContent, (err) => {
+//       if (err) {
+//         console.error('Error writing logo.svg:', err);
+//       } else {
+//         console.log('Generated logo.svg');
+//       }
+//     });
+  
+//     await browser.close();
+// }
