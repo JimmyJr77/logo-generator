@@ -32,6 +32,16 @@ const questions = [
   },
   {
     type: 'list',
+    message: 'Where size would you like your font?',
+    name: 'fontSize',
+    choices: [
+        "Small",
+        "Medium",
+        "Large"
+    ]
+  },
+  {
+    type: 'list',
     message: 'What font family would you like to use for your logo?',
     name: 'font',
     choices: [
@@ -51,14 +61,14 @@ const questions = [
   },
   {
     type: 'list',
-    message: 'Where would you like your font?',
-    name: 'fontPosition',
+    message: 'Where would you like your text positioned?',
+    name: 'textPosition',
     choices: [
         "top left",
         "top middle",
         "top right",
         "center left",
-        "center",
+        "center middle",
         "center right",
         "bottom left",
         "bottom middle",
@@ -68,7 +78,7 @@ const questions = [
 ];
 
 function generateLogo(answers) {
-    const {shape, shapeColor, text, textColor, font, fontPosition} = answers;
+    const {shape, shapeColor, text, textColor, font, textPosition, fontSize} = answers;
   
     console.log('Logo Design Requirements:');
     console.log('Shape:', shape);
@@ -76,6 +86,7 @@ function generateLogo(answers) {
     console.log('Text:', text);
     console.log('Text Color:', textColor);
     console.log('Font:', font)
+    console.log('Font Size:', fontSize)
   
     // Generate the HTML content dynamically
     const htmlContent = `
@@ -86,7 +97,8 @@ function generateLogo(answers) {
             <title>Dynamic Logo</title>
             </head>
             <body>
-                <div id="${shape}"><span id="text">${text}</div>
+                <div id="${shape}"></div>
+                <div id="text">${text}</div>
             </body>
         </html>
     `;
@@ -101,56 +113,84 @@ function generateLogo(answers) {
     });
 
 
-     // Generate the CSS for the font position
-  let cssFontPosition = '';
-  if (fontPosition == 'top left') {
-    cssFontPosition = `
-      top: 25%;
-      left: 25%;
-    `;
-  } else if (fontPosition == 'top middle') {
-    cssFontPosition = `
-      top: 25%;
-      left: 50%;
-    `;
-  } else if (fontPosition == 'top right') {
-    cssFontPosition = `
-      top: 25%;
-      left: 75%;
-    `;
-  } else if (fontPosition == 'center left') {
-    cssFontPosition = `
-      top: 50%;
-      left: 25%;
-    `;
-  } else if (fontPosition == 'center middle') {
-    cssFontPosition = `
-      top: 50%;
-      left: 75%;
-    `;
-  } else if (fontPosition == 'center right') {
-    cssFontPosition = `
-      top: 75%;
-      left: 25%;
-    `;
-  } else if (fontPosition == 'bottom left') {
-    cssFontPosition = `
-      top: 75%;
-      left: 50%;
-    `;
-  } else if (fontPosition == 'bottom middle') {
-    cssFontPosition = `
-      top: 75%;
-      left: 75%;
-    `;
-  } else if (fontPosition == 'bottom right') {
-    cssFontPosition = `
-      top: 25%;
-      left: 50%;
-    `;
-  }
-  
+    // Generate the CSS for the font position
+    let cssTextPosition = '';
+    if (textPosition == 'top left') {
+        cssTextPosition = 
+        `
+        top: 30%;
+        left: 30%;
+        `;
+    } else if (textPosition == 'top middle') {
+        cssTextPosition = 
+        `
+        top: 30%;
+        left: 50%;
+        `;
+    } else if (textPosition == 'top right') {
+        cssTextPosition = 
+        `
+        top: 30%;
+        left: 70%;
+        `;
+    } else if (textPosition == 'center left') {
+        cssTextPosition = 
+        `
+        top: 50%;
+        left: 30%;
+        `;
+    } else if (textPosition == 'center middle') {
+        cssTextPosition = 
+        `
+        top: 50%;
+        left: 50%;
+        `;
+    } else if (textPosition == 'center right') {
+        cssTextPosition = 
+        `
+        top: 50%;
+        left: 70%;
+        `;
+    } else if (textPosition == 'bottom left') {
+        cssTextPosition =
+        `
+        top: 70%;
+        left: 30%;
+        `;
+    } else if (textPosition == 'bottom middle') {
+        cssTextPosition = 
+        `
+        top: 70%;
+        left: 50%;
+        `;
+    } else if (textPosition == 'bottom right') {
+        cssTextPosition = 
+        `
+        top: 70%;
+        left: 70%;
+        `;
+    }
+
+    var cssFontSize = '';
+    if (fontSize == 'Small') {
+      cssFontSize = '50px';
+    } else if (fontSize == 'Medium') {
+      cssFontSize = '100px';
+    } else {
+      cssFontSize = '150px';
+    };
+
     const cssContent = `
+    /* Body */
+    body {
+        position:fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 400px;
+        height: 400px;
+    }
+    
     /* Triangle */
     #triangle {
         position: absolute;
@@ -193,10 +233,10 @@ function generateLogo(answers) {
     #text {
         font-family: ${font};
         font-weight: bold;
-        font-size: 100px;
+        font-size: ${cssFontSize};
         position: absolute;
         display:flex;
-        ${cssFontPosition}
+        ${cssTextPosition}
         transform: translate(-50%, -50%);
         color:  ${textColor};
     }
