@@ -30,16 +30,52 @@ const questions = [
     name: 'textColor',
     when: (answers) => answers.text,
   },
+  {
+    type: 'list',
+    message: 'What font family would you like to use for your logo?',
+    name: 'font',
+    choices: [
+        "'Courier New', Courier, monospace",
+        "'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif",
+        "'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif",
+        "'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif",
+        "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+        "'Times New Roman', Times, serif",
+        "'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif",
+        "Arial, Helvetica, sans-serif",
+        "Cambria, Cochin, Georgia, Times, 'Times New Roman', serif",
+        "Georgia, 'Times New Roman', Times, serif",
+        "Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif",
+        "Verdana, Geneva, Tahoma, sans-serif",
+    ]
+  },
+  {
+    type: 'list',
+    message: 'Where would you like your font?',
+    name: 'fontPosition',
+    choices: [
+        "top left",
+        "top middle",
+        "top right",
+        "center left",
+        "center",
+        "center right",
+        "bottom left",
+        "bottom middle",
+        "bottom right",
+    ]
+  }
 ];
 
 function generateLogo(answers) {
-    const {shape, shapeColor, text, textColor} = answers;
+    const {shape, shapeColor, text, textColor, font, fontPosition} = answers;
   
     console.log('Logo Design Requirements:');
     console.log('Shape:', shape);
     console.log('Shape Color:', shapeColor);
     console.log('Text:', text);
     console.log('Text Color:', textColor);
+    console.log('Font:', font)
   
     // Generate the HTML content dynamically
     const htmlContent = `
@@ -64,6 +100,56 @@ function generateLogo(answers) {
       }
     });
 
+
+     // Generate the CSS for the font position
+  let cssFontPosition = '';
+  if (fontPosition == 'top left') {
+    cssFontPosition = `
+      top: 25%;
+      left: 25%;
+    `;
+  } else if (fontPosition == 'top middle') {
+    cssFontPosition = `
+      top: 25%;
+      left: 50%;
+    `;
+  } else if (fontPosition == 'top right') {
+    cssFontPosition = `
+      top: 25%;
+      left: 75%;
+    `;
+  } else if (fontPosition == 'center left') {
+    cssFontPosition = `
+      top: 50%;
+      left: 25%;
+    `;
+  } else if (fontPosition == 'center middle') {
+    cssFontPosition = `
+      top: 50%;
+      left: 75%;
+    `;
+  } else if (fontPosition == 'center right') {
+    cssFontPosition = `
+      top: 75%;
+      left: 25%;
+    `;
+  } else if (fontPosition == 'bottom left') {
+    cssFontPosition = `
+      top: 75%;
+      left: 50%;
+    `;
+  } else if (fontPosition == 'bottom middle') {
+    cssFontPosition = `
+      top: 75%;
+      left: 75%;
+    `;
+  } else if (fontPosition == 'bottom right') {
+    cssFontPosition = `
+      top: 25%;
+      left: 50%;
+    `;
+  }
+  
     const cssContent = `
     /* Triangle */
     #triangle {
@@ -72,12 +158,10 @@ function generateLogo(answers) {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        width: 0;
-        height: 0;
-        border-left: 125px solid transparent;
-        border-right: 125px solid transparent;
-        border-bottom: 250px solid #ff0000; 
-        background-color: ${shapeColor};
+        width: 250px;
+        height: 250px;
+        background-color:${shapeColor};
+        clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
     }
       
     /* Square */
@@ -107,13 +191,12 @@ function generateLogo(answers) {
     
     /* Text */
     #text {
-        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        font-family: ${font};
         font-weight: bold;
         font-size: 100px;
         position: absolute;
         display:flex;
-        top: 50%;
-        left: 50%;
+        ${cssFontPosition}
         transform: translate(-50%, -50%);
         color:  ${textColor};
     }
