@@ -1,5 +1,5 @@
 
     <svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="150" cy="100" r="50" fill="black" />
-      <text x="150" y="105" font-family="Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif" font-size="45px" fill="white" text-anchor="middle" alignment-baseline="middle">TXT</text>
+      <circle cx="150" cy="100" r="50" fill="" />
+      <text x="150" y="105" font-family="undefined" font-size="45px" fill="undefined" text-anchor="middle" alignment-baseline="middle"></text>
     </svg>
