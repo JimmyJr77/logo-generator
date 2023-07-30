@@ -1,0 +1,5 @@
+
+    <svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="150 50, 100 150, 200 150" fill="orange" />
+      <text x="150" y="140" font-family="'Times New Roman', Times, serif" font-size="15px" fill="white" text-anchor="middle" alignment-baseline="middle">TEN</text>
+    </svg>

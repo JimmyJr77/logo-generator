@@ -1,8 +1,8 @@
 // Attach required files
 const fs = require('fs');
 const inquirer = require('inquirer');
-const questions = require('./questions');
-const { Circle, Square, Triangle } = require('./shapes');
+const questions = require('./lib/questions');
+const { Circle, Square, Triangle } = require('./lib/shapes');
 
 // Function to generate the logo from answers
 function generateLogo(answers) {
