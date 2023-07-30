@@ -79,6 +79,16 @@ Once you have created your svg logo, you can move it to the examples folder and 
   * I used inquirer doumentation from https://www.npmjs.com/package/inquirer to support with user interface.
   
   * I used bootcamp resources to check old assignments and class work.
+
+  * @mhenning with askBCS left me with the following code.
+
+            
+        class Square extends Shape {
+          render() {
+            return `stuff here`;
+          }
+        }
+          
 ## License
 MIT License
 
