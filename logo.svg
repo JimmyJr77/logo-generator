@@ -1,6 +1,5 @@
 
     <svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="150" cy="100" r="50" fill="blue" />
-      <text x="150" y="105" font-family="'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif" font-size="30px" fill="white" text-anchor="middle" alignment-baseline="middle">UK</text>
+      <circle cx="150" cy="100" r="50" fill="pink" />
+      <text x="115" y="130" font-family="'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif" font-size="30px" fill="red" text-anchor="middle" alignment-baseline="middle">ALA</text>
     </svg>
-  
